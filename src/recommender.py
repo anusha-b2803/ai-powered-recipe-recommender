@@ -131,5 +131,5 @@ if __name__ == "__main__":
         'Season': 'Summer',
         'Occasion': 'Weeknight'
     }
-    recommendations = rec.recommend_recipes(filters)
+    recommendations, _, _, _ = rec.recommend_recipes(filters)
     print(recommendations[['Recipe_Name', 'Cuisine_Type', 'Liking_Probability']])
