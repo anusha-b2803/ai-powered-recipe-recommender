@@ -4,7 +4,13 @@ import joblib
 import os
 
 class RecipeRecommender:
-    def __init__(self, models_dir=r'a:\MP\DA MP\recipe-recommender\models', processed_data_path=r'a:\MP\DA MP\recipe-recommender\data\processed\processed_recipes.csv'):
+    def __init__(self, models_dir=None, processed_data_path=None):
+        # Dynamically evaluate absolute paths relative to execution folder context
+        if models_dir is None:
+            models_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'models')
+        if processed_data_path is None:
+            processed_data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'processed', 'processed_recipes.csv')
+            
         self.models_dir = models_dir
         self.processed_data_path = processed_data_path
         self.classifier = None
@@ -46,7 +52,7 @@ class RecipeRecommender:
             'Cuisine_Type', 'Cooking_Time_Minutes', 'Calories_Per_Serving', 'Difficulty_Score'
         """
         if self.classifier is None or self.clusterer_pipe is None:
-            return pd.DataFrame(), 0, -1
+            return pd.DataFrame(), 0, -1, False
             
         # Add default for clustering compatibility if missing
         if 'Popularity_Score' not in user_filters:
