@@ -14,7 +14,7 @@ def inject_custom_css():
     """
     Injects aesthetic Glassmorphism style CSS with background.jpg image base64 format.
     """
-    img_path = r'a:\MP\DA MP\recipe-recommender\assets\background.jpg'
+    img_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'assets', 'background.jpg')
     if os.path.exists(img_path):
         with open(img_path, "rb") as f:
             b64_img = base64.b64encode(f.read()).decode()
