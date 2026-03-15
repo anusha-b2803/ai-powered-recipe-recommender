@@ -1,6 +1,6 @@
 # AI Powered Recipe Recommender
 
-**[Live Demo on Render](https://YOUR_APP_NAME.onrender.com)**
+Live demo here: https://ai-powered-recipe-recommender.onrender.com/
 
 An industry-grade recommendation engine combining **KMeans Clustering** and **Decision Tree Classification** with a sleek interactive **Streamlit Dashboard**.
 
